@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width= device-width, initial-scale=1.0">
+  <title>Claudia y Javier - Nuestra Boda</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background-color: #fdfdfd;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header, section, footer {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 2px solid #000;
+    }
+    h1, h2 {
+      font-family: 'Times New Roman', serif;
+    }
+    .countdown {
+      font-size: 1.5em;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .faq, .description {
+      border-top: 1px solid #ccc;
+      margin-top: 20px;
+      padding-top: 10px;
+    }
+    form input, form select, form textarea {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+      font-size: 1em;
+    }
+    form button {
+      background-color: #444;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    .gallery-placeholder {
+      border: 2px dashed #999;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+      background: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Claudia & Javier</h1>
+    <p>¡Nos casamos!</p>
+    <p>13 de septiembre - 13:30h</p>
+    <p>Calle Reina Sofía Nº3, Ambroka</p>
+  </header>
+
+  <section class="countdown">
+    <h2>Cuenta regresiva</h2>
+    <div id="timer">Cargando...</div>
+  </section>
+
+  <section class="description">
+    <h2>¿Cómo será nuestra boda?</h2>
+    <p>Nos encantaría compartir este día tan especial contigo. La ceremonia comenzará a la una y media en un lugar íntimo y familiar. Después, celebraremos con una comida y mucha alegría. ¡Esperamos que vengas con muchas ganas de pasarlo bien!</p>
+  </section>
+
+  <section>
+    <h2>Confirmación de asistencia</h2>
+    <form>
+      <label>Nombre completo:</label>
+      <input type="text" name="nombre" required>
+
+      <label>¿Vendrás solo/a o acompañado/a?</label>
+      <select name="acompanante">
+        <option value="solo">Solo/a</option>
+        <option value="pareja">Con pareja</option>
+        <option value="familia">Con pareja e hijos</option>
+      </select>
+
+      <label>Comentarios adicionales:</label>
+      <textarea name="comentarios"></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <section class="faq">
+    <h2>Preguntas frecuentes</h2>
+    <ul>
+      <li><strong>¿Hay aparcamiento?</strong> Sí, hay aparcamiento cerca del lugar de la ceremonia.</li>
+      <li><strong>¿Debo llevar algo?</strong> Solo tus ganas de celebrar.</li>
+      <li><strong>¿Hay código de vestimenta?</strong> No, ven como te sientas cómodo/a.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Galería</h2>
+    <div class="gallery-placeholder">
+      Aquí aparecerán las fotos de la boda. (Próximamente habilitaremos la opción de subir fotos)
+    </div>
+  </section>
+
+  <footer>
+    <p>Gracias por formar parte de este momento tan especial.</p>
+  </footer>
+
+  <script>
+    // Cuenta regresiva
+    const eventDate = new Date("2025-09-13T13:30:00").getTime();
+    const timer = document.getElementById("timer");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance > 0) {
+        timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      } else {
+        timer.innerHTML = "¡Ya es el gran día!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
