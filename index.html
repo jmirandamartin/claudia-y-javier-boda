@@ -23,7 +23,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #fff8f2;
+  background-color: #e6f3ff;
   border-bottom: 2px solid #000;
   z-index: 1000;
   font-family: 'Playfair Display', serif;
@@ -31,11 +31,12 @@
 
 .menu-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   max-width: 900px;
   margin: auto;
   padding: 10px 20px;
+  gap: 20px;
 }
 
 .logo {
@@ -68,7 +69,7 @@
   .menu-list {
     display: none;
     flex-direction: column;
-    background-color: #fff8f2;
+    background-color: #e6f3ff;
     width: 100%;
     padding: 10px 0;
   }
@@ -136,7 +137,7 @@ body {
 <body>
  <nav class="menu">
   <div class="menu-container">
-    <span class="logo">Claudia & Javier</span>
+    <span class="logo"></span>
     <button class="toggle-button" onclick="toggleMenu()">☰</button>
     <ul class="menu-list" id="menu-links">
       <li><a href="#inicio">Inicio</a></li>
@@ -148,7 +149,7 @@ body {
     </ul>
   </div>
 </nav>
-  <header>
+  <header id="Inicio">
     <h1>Claudia y Javier</h1>
     <h2>¡Nos casamos!</h2>
     <img src="boda_horte_2.png" alt="Claudia y Javier" style="width: 100%; max-width: 700px; display:block; margin: 20px auto;">
@@ -156,20 +157,20 @@ body {
     <h3>Calle Reina Sofía Nº3, Nambroca</h3>
   </header>
 
-  <section class="countdown">
+  <section class="countdown" id="Cuenta regresiva">
     <h2>Cuenta regresiva</h2>
     <div id="timer">Cargando...</div>
   </section>
 
-  <section class="description">
+  <section class="Description" id="Description" >
     <h2>¿Cómo será nuestra boda?</h2>
     <p>Nos encantaría compartir este día tan especial contigo. La ceremonia comenzará a la una y media en un lugar íntimo y familiar. Después, celebraremos con una comida y mucha alegría. ¡Esperamos que vengas con muchas ganas de pasarlo bien!</p>
   </section>
 
-  <section>
+  <section id="Confirmación">
     <h2>Confirmación de asistencia</h2>
     <form name="confirmacion" method="POST" data-netlify="true" id="formulario-boda">
-  <div style="border: 2px solid #333; padding: 20px; background-color: #fff8f2; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  <div style="border: 2px solid #333; padding: 20px; background-color: #e6f3ff; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
     <h3 style="font-family: 'Playfair Display', serif; text-align: center;">Confirmación de asistencia <span style="font-size:1.2em;">✉️</span></h3>
 
     <label>Nombre completo:</label>
@@ -233,7 +234,7 @@ body {
 </script>
   </section>
 
-  <section class="faq">
+  <section class="faq" id="FAQ">
     <h2>Preguntas frecuentes</h2>
     <ul>
       <li><strong>¿Hay aparcamiento?</strong> Sí, hay aparcamiento cerca del lugar de la ceremonia.</li>
@@ -242,7 +243,7 @@ body {
     </ul>
   </section>
 
-  <section>
+  <section id="Galeria">
     <h2>Galería</h2>
     <div class="gallery-placeholder">
       Aquí aparecerán las fotos de la boda. (Próximamente habilitaremos la opción de subir fotos)
