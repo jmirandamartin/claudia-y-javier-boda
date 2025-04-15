@@ -87,22 +87,69 @@
 
   <section>
     <h2>Confirmación de asistencia</h2>
-    <form>
-      <label>Nombre completo:</label>
-      <input type="text" name="nombre" required>
+    <form name="confirmacion" method="POST" data-netlify="true" id="formulario-boda">
+  <div style="border: 2px solid #333; padding: 20px; background-color: #fff8f2; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <h3 style="font-family: 'Playfair Display', serif; text-align: center;">Confirmación de asistencia <span style="font-size:1.2em;">✉️</span></h3>
 
-      <label>¿Vendrás solo/a o acompañado/a?</label>
-      <select name="acompanante">
-        <option value="solo">Solo/a</option>
+    <label>Nombre completo:</label>
+    <input type="text" name="nombre_completo" required>
+
+    <label>¿Vas a venir?</label>
+    <select name="asistencia" id="asistencia" required onchange="mostrarOpciones()">
+      <option value="">-- Selecciona una opción --</option>
+      <option value="si">Sí</option>
+      <option value="no">No</option>
+    </select>
+
+    <div id="no-viene" style="display: none;">
+      <label>Motivo por el que no puedes venir:</label>
+      <select name="motivo_no">
+        <option value="muerte">Muerte familiar</option>
+        <option value="zombis">Invasión zombi</option>
+        <option value="viaje">Viaje de última hora</option>
+        <option value="otra">Tengo una excusa mejor</option>
+      </select>
+      <label>Tu excusa personalizada:</label>
+      <input type="text" name="excusa" placeholder="Cuéntanos tu historia...">
+    </div>
+
+    <div id="si-viene" style="display: none;">
+      <label>¿Con quién vienes?</label>
+      <select name="acompanamiento" required>
+        <option value="">-- Selecciona --</option>
+        <option value="solo">Voy solo/a</option>
         <option value="pareja">Con pareja</option>
-        <option value="familia">Con pareja e hijos</option>
+        <option value="pareja_hijos">Con pareja e hijos</option>
       </select>
 
-      <label>Comentarios adicionales:</label>
-      <textarea name="comentarios"></textarea>
+      <label>¿Tienes alguna alergia alimentaria?</label>
+      <select name="tiene_alergias" onchange="mostrarAlergia(this)">
+        <option value="">-- Selecciona --</option>
+        <option value="no">No</option>
+        <option value="si">Sí</option>
+      </select>
 
-      <button type="submit">Enviar</button>
-    </form>
+      <div id="campo-alergia" style="display: none;">
+        <label>Especifica tus alergias:</label>
+        <input type="text" name="alergias" placeholder="Ej: marisco, frutos secos...">
+      </div>
+    </div>
+
+    <button type="submit">Enviar confirmación</button>
+  </div>
+</form>
+
+<script>
+  function mostrarOpciones() {
+    const asistencia = document.getElementById("asistencia").value;
+    document.getElementById("no-viene").style.display = asistencia === "no" ? "block" : "none";
+    document.getElementById("si-viene").style.display = asistencia === "si" ? "block" : "none";
+  }
+
+  function mostrarAlergia(select) {
+    document.getElementById("campo-alergia").style.display = select.value === "si" ? "block" : "none";
+  }
+</script>
   </section>
 
   <section class="faq">
