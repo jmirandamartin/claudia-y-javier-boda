@@ -249,22 +249,40 @@ body {
   }
    // Manejo del envío del formulario
   const form = document.getElementById("formulario-boda");
-  form.addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita redirección
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); // Evita redirección
 
-    const datos = new FormData(form);
+  // 🔍 Clona el formulario para manipularlo sin modificar el DOM original
+  const formClon = form.cloneNode(true);
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(datos).toString()
-    })
-    .then(() => {
-      form.style.display = "none"; // Oculta el formulario
-      document.getElementById("mensaje-gracias").style.display = "block"; // Muestra agradecimiento
-    })
-    .catch((error) => alert("Hubo un error: " + error));
-  });
+  const asistencia = formClon.querySelector('[name="asistencia"]').value;
+
+  // ❌ Si dice que SÍ viene, eliminamos campos de "no viene"
+  if (asistencia === "si") {
+    formClon.querySelector('[name="motivo_no"]')?.remove();
+    formClon.querySelector('[name="excusa"]')?.remove();
+  }
+
+  // ❌ Si dice que NO viene, eliminamos campos de "sí viene"
+  if (asistencia === "no") {
+    formClon.querySelector('[name="acompanamiento"]')?.remove();
+    formClon.querySelector('[name="tiene_alergias"]')?.remove();
+    formClon.querySelector('[name="alergias"]')?.remove();
+  }
+
+  const datos = new FormData(formClon);
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(datos).toString()
+  })
+  .then(() => {
+    form.style.display = "none"; // Oculta formulario
+    document.getElementById("mensaje-gracias").style.display = "block"; // Muestra mensaje
+  })
+  .catch((error) => alert("Hubo un error: " + error));
+});
 </script>
   </section>
 
