@@ -229,6 +229,13 @@ body {
     <button type="submit">Enviar confirmación</button>
   </div>
 </form>
+ <div id="mensaje-gracias" style="display: none; text-align: center; margin-top: 30px;">
+  <h3>¡Gracias por confirmar tu asistencia! 🎉</h3>
+  <p>Hemos recibido tu respuesta y estamos muy felices de contar contigo.</p>
+      <p style="margin-top: 20px;">
+      <a href="/" style="text-decoration: none; color: #2c8e80; font-weight: bold;">Volver al inicio</a>
+    </p>
+</div>
 
 <script>
   function mostrarOpciones() {
@@ -240,6 +247,24 @@ body {
   function mostrarAlergia(select) {
     document.getElementById("campo-alergia").style.display = select.value === "si" ? "block" : "none";
   }
+   // Manejo del envío del formulario
+  const form = document.getElementById("formulario-boda");
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita redirección
+
+    const datos = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(datos).toString()
+    })
+    .then(() => {
+      form.style.display = "none"; // Oculta el formulario
+      document.getElementById("mensaje-gracias").style.display = "block"; // Muestra agradecimiento
+    })
+    .catch((error) => alert("Hubo un error: " + error));
+  });
 </script>
   </section>
 
