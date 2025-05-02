@@ -177,6 +177,8 @@ body {
     <p>El 13 de septiembre, a partir de las 13:30, abrimos las puertas para celebrar una ceremonia civil sin protocolos raros (pero con barra libre, faltaría más). Luego vendrá la comida y, si todo va bien, una fiesta digna de contarse… aunque nadie se acuerde bien al día siguiente.</p>
     <p>Eso sí, como es en casa, a las 12 de la noche hay que bajar el volumen (y quizá a algún invitado también). Pero hasta entonces, te prometemos risas, bailes mal coordinados y mucho amor del bueno.</p>
     <p>Gracias por formar parte de nuestra historia. Sin ti, este día no sería lo mismo (ni la pista de baile estaría tan bien decorada).</p>
+    <p>Te esperamos!</p>
+     <img src="arroyo_degollada.jpg" alt="Claudia y Javier" style="width: 100%; max-width: 700px; display:block; margin: 18px auto;">
   </section>
 
   <section id="confirmacion">
@@ -295,10 +297,31 @@ body {
 
   <section id="galeria">
     <h2>Galería</h2>
-    <div class="gallery-placeholder">
-      Aquí aparecerán las fotos de la boda. (Próximamente habilitaremos la opción de subir fotos)
-    </div>
-  </section>
+    <h3>¡Sube tus fotos de la boda! 📸</h3>
+  <p>Queremos ver el fiestón desde todos los ángulos. Sube tus fotos aquí... pero antes, dinos la contraseña.</p>
+
+  <input type="password" id="clave" placeholder="Contraseña secreta..." />
+  <button onclick="mostrarLink()">Acceder</button>
+
+  <div id="linkDrive" style="display: none; margin-top: 20px;">
+    <p>¡Gracias por compartir tus recuerdos! Haz clic aquí para subir tus fotos:</p>
+    <a href="https://drive.google.com/drive/folders/1VzXo1zNDqI3t7jr9KWKI6n7o7_IRDyNR?usp=drive_link" target="_blank">📂 Subir fotos a nuestra carpeta</a>
+  </div>
+
+  <p id="errorClave" style="color: red; display: none;">Contraseña incorrecta. ¡Intenta de nuevo!</p>
+</section>
+
+<script>
+  function mostrarLink() {
+    const clave = document.getElementById("clave").value;
+    if (clave === "Elly2025") {
+      document.getElementById("linkDrive").style.display = "block";
+      document.getElementById("errorClave").style.display = "none";
+    } else {
+      document.getElementById("errorClave").style.display = "block";
+    }
+  }
+</script>
 
   <footer>
     <p>Gracias por formar parte de este momento tan especial.</p>
