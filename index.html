@@ -149,10 +149,10 @@ body {
     <button class="toggle-button" onclick="toggleMenu()">☰</button>
     <ul class="menu-list" id="menu-links">
       <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#cuenta-regresiva">Cuenta regresiva</a></li>
+      <li><a href="#cuenta-regresiva">¿Cuánto queda para la boda?</a></li>
       <li><a href="#descripcion">La boda</a></li>
       <li><a href="#confirmacion">Confirmación</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#faq">Preguntas Frecuentes</a></li>
       <li><a href="#galeria">Galería</a></li>
     </ul>
   </div>
@@ -166,7 +166,7 @@ body {
   </header>
 
   <section class="countdown" id="cuenta-regresiva">
-    <h2>Cuenta regresiva</h2>
+    <h2>¿Cuánto queda para la boda?</h2>
     <div id="timer">Cargando...</div>
   </section>
 
@@ -282,6 +282,9 @@ body {
     })
     .catch((error) => alert("Hubo un error: " + error));
   });
+   <footer>
+    <p>Gracias por formar parte de este momento tan especial.</p>
+  </footer>
 </script>
    
   </section>
@@ -323,9 +326,6 @@ body {
   }
 </script>
 
-  <footer>
-    <p>Gracias por formar parte de este momento tan especial.</p>
-  </footer>
 
   <script>
     // Cuenta regresiva
@@ -359,7 +359,7 @@ body {
   document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section, header");
     sections.forEach(section => {
-      if (section.id !== "inicio") {
+      if (section.id !== "inicio, cuenta-regresiva") {
         section.style.display = "none";
       }
     });
