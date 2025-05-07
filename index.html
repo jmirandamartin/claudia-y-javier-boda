@@ -354,5 +354,39 @@ body {
     menu.classList.toggle("show");
   }
 </script>
+ <script>
+  // Oculta todas las secciones excepto "inicio"
+  document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section, header");
+    sections.forEach(section => {
+      if (section.id !== "inicio") {
+        section.style.display = "none";
+      }
+    });
+
+    // Manejador de navegación
+    const links = document.querySelectorAll('.menu-list a');
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault(); // Evita el salto de ancla
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        sections.forEach(section => {
+          section.style.display = 'none';
+        });
+
+        if (targetSection) {
+          targetSection.style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Cierra el menú en móviles
+        document.getElementById("menu-links").classList.remove("show");
+      });
+    });
+  });
+</script>
 </body>
 </html>
