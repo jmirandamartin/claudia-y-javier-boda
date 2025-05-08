@@ -152,7 +152,9 @@ body {
       <li><a href="#cuenta-regresiva">¿Cuánto queda para la boda?</a></li>
       <li><a href="#descripcion">La boda</a></li>
       <li><a href="#confirmacion">Confirmación</a></li>
+       <li><a href="#canciones">Canciones</a></li>
       <li><a href="#faq">Preguntas Frecuentes</a></li>
+      <li><a href="#tiempo">El Tiempo</a></li>
       <li><a href="#galeria">Galería</a></li>
     </ul>
   </div>
@@ -289,27 +291,51 @@ body {
   </footer>
   </section>
 
+ <section id="canciones">
+  <h2>Sugiérenos canciones 🎶</h2>
+  <p>¿Tienes alguna canción que no puede faltar en la boda? ¡Cuéntanos!</p>
+
+  <form name="sugerir-cancion" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="sugerir-cancion">
+    <label>Tu nombre:</label>
+    <input type="text" name="nombre" required>
+
+    <label>Canción (nombre + artista):</label>
+    <input type="text" name="cancion" required>
+
+    <button type="submit">Enviar sugerencia</button>
+  </form>
+   <footer>
+    <p>Gracias por tu apotación, lo tendremos en cuenta.</p>
+  </footer>
+</section>
+
   <section class="faq" id="faq">
     <h2>Preguntas frecuentes</h2>
     <ul>
       <li><strong>¿Hay aparcamiento cerca?</strong> Sí, pero si vienes andando, corriendo o volando mejor, ya que no hay parking y el estacionamiento es residencial y limitado. Pero si no tienes más remedio porque vengas de lejos o necesites traer
        cosas pesadas (carrito, pañales, abuelas, ...), no hay problema.</li>
-      <li><strong>¿Hay código de vestimenta?</strong> No, ven como te sientas cómodo/a.</li>
-      <li><strong>¿Puedo ir en traje?</strong> Sí, puedes venir en traje, pero también puedes venir con vaqueros/chinos y una camisa, como te sientas más cómodo. Ten en cuenta que la celebración será al aire libre todo el tiempo
-      y puede hacer tanto calor como frío (esto es más improbable). Lo más importante que debes tener en cuenta es no ir más elegante que el novio, sino que te pueden confundir con él</li>
+      <li><strong>¿Se pueden tirar petardos, tracas o cohetes?</strong> No, esto no se puede hacer. Hay un miembro de la familia como hipersensibilidad a ruidos muy altos, que lo pasa realmente mal.</li>
+      <li><strong>¿Hay código de vestimenta?</strong> No, ven como te sientas cómodo/a, pero recuerda que es una boda.</li>
+      <li><strong>¿Puedo ir en traje?</strong> Sí, puedes venir en traje, pero también puedes venir con chinos y una camisa, como te sientas más cómodo. Lo más importante es que no debes ir más elegante que el novio, para que no te confundan con él</li>
       <li><strong>¿Puedo llevar una pamela?</strong> Sí, puedes llevar una pamela, pero ten en cuenta el viento o te tocara ir a buscarla a casa del vecino.</li>
       <li><strong>¿Puedo ir en tacones o sandalias?</strong> Sí, puedes ir en tacones y sandalias, pero ten en cuenta que el terreno no está asfaltado y es tierra. Por otro lado, es recomendable llevar los pies cubiertos por peligro de hormigas cabreadas.</li>
-      <li><strong>¿Qué vamos a comer?</strong> Habrá unos entrantes a definir, teniendo en cuenta las alergias e intolerancias de los invitados, habrá paella y habrá bbq (mucha).</li>
+      <li><strong>¿Qué vamos a comer?</strong> Habrá unos entrantes a definir, teniendo en cuenta las alergias e intolerancias de los invitados, habrá paella y habrá bbq.</li>
       <li><strong>¿Hay menu infantil?</strong> No, habrá la misma comida para niños y adultos.</li>
       <li><strong>¿Hay entretenimiento para los niños?</strong> No, el entretenimiento correrá a cargo de los padres, ya que será el mismo para niños que para adultos.</li>
       <li><strong>¿Hasta qué hora dura la celebración?</strong> No tenemos prisa, cortaremos la música a las 00:00 (por ruido), esto no quiere decir que terminemos a esa hora, sino que podemos seguir sin ella hasta que nos cansemos.</li>
     </ul>
   </section>
 
+ <section id="tiempo">
+  <h2>¿Qué tiempo hará? ☀️🌧️</h2>
+  <iframe src=https://www.eltiempo.es/widget/widget_loader/09846d485abc896dd38f63badb1b164f" width="100%" height="250" frameborder="0" scrolling="no"></iframe>
+</section>
+
   <section id="galeria">
     <h2>Galería</h2>
     <h3>¡Sube tus fotos de la boda! 📸</h3>
-  <p>Queremos ver el fiestón desde todos los ángulos. Sube tus fotos aquí... pero antes, dinos la contraseña.</p>
+  <p>Queremos ver la fiesta desde todos los ángulos. Sube tus fotos aquí... pero antes, dinos la contraseña.</p>
 
   <input type="password" id="clave" placeholder="Contraseña secreta..." />
   <button onclick="mostrarLink()">Acceder</button>
