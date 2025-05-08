@@ -327,12 +327,21 @@ body {
     </ul>
   </section>
 
- <section id="tiempo">
-  <h2>¿Qué tiempo hará en Nambroca? ☀️🌧️</h2>
-    <div style="text-align: center; margin-top: 20px;">
-    <iframe src="https://www.eltiempo.es/widget/widget_loader/f2456fb320f14d19ef3942543b863942" width="100%" height="250" frameborder="0" scrolling="no"></iframe>
-  </div>
+<section id="tiempo">
+  <h2>¿Qué tiempo hará en Nambroca? ☀️🌦️</h2>
+  <a class="weatherwidget-io" href="https://forecast7.com/en/39d80n3d95/nambroca/" data-label_1="NAMBROCA" data-label_2="WEATHER" data-theme="original">NAMBROCA WEATHER</a>
 </section>
+
+<script>
+!function(d,s,id){
+  var js,fjs=d.getElementsByTagName(s)[0];
+  if(!d.getElementById(id)){
+    js=d.createElement(s); js.id=id;
+    js.src='https://weatherwidget.io/js/widget.min.js';
+    fjs.parentNode.insertBefore(js,fjs);
+  }
+}(document,'script','weatherwidget-io-js');
+</script>
 
   <section id="galeria">
     <h2>Galería</h2>
